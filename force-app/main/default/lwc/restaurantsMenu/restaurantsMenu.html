@@ -1,0 +1,63 @@
+<template>
+    <div lwc:if={showspinner} style="height: 200px; position:relative">
+      <lightning-spinner variant="base" size="medium"></lightning-spinner>
+    </div>
+    <div lwc:else>
+        <template if:true={showmenu}>
+        <lightning-card title="Menu" icon-name="custom:custom11">
+            <ul class="slds-m-around_medium parentcss">
+            <template if:true={restaurantsmenurecords}>  
+                <div class="slds-grid slds-wrap childcss"> 
+                    <template for:each={restaurantsmenurecords} for:item="rest" for:index="index">
+                                <div key={rest.Id} onclick={menuitems} data-id={rest.Id} class="slds-col slds-small-size_12-of-12 slds-medium-size_6-of-12 slds-large-size_4-of-12 my-card" >
+                                    <b>{rest.Product__r.Name}</b> </br>  
+                                    <div class="slds-grid slds-wrap">                                                              
+                                        <div  class=" slds-col slds-small-size_1-of-2 slds-medium-size_1-of-2 slds-large-size_1-of-2">                                    
+                                            <img style="height: 80px;width:90px " src={rest.Product_image__c}/>
+                                        </div>
+                                        <div class="slds-m-top_large slds-col slds-small-size_1-of-2 slds-medium-size_1-of-2 slds-large-size_1-of-2">
+                                            <b>Price - &nbsp; </b>
+                                        <span>{rest.Price__c}</span>
+                                        </div>
+                                        <!--div class="slds-col slds-small-size_1-of-2 slds-medium-size_1-of-2 slds-large-size_1-of-2">                                
+                                            <span>    
+                                                <lightning-button variant="destructive" label="Add" title="Primary action" onclick={Previousscreen} class="slds-m-right_x-small"></lightning-button>
+                                            </span>
+                                        </div-->
+                                        <div class="slds-col slds-small-size_2-of-2 slds-medium-size_2-of-2 slds-large-size_2-of-2">                                
+                                        <span>
+                                            <div class="slds-grid slds-wrap slds-m-bottom_x-small">
+                                                <div class="slds-col slds-small-size_1-of-3 slds-medium-size_1-of-3 slds-large-size_1-of-3 slds-align_absolute-center">
+                                                    <lightning-icon icon-name='utility:minimize_window' alternative-text='minimize_window' data-id={index} onclick={decreaseQuantity} size='small' title='minimize_window'></lightning-icon>
+                                                </div>
+                                                <div class="slds-col slds-small-size_1-of-3 slds-medium-size_1-of-3 slds-large-size_1-of-3">
+                                                    <lightning-input type="number" label="" value={rest.Quantity__c}></lightning-input>
+                                                </div>
+                                                <div class="slds-col slds-small-size_1-of-3 slds-medium-size_1-of-3 slds-large-size_1-of-3 slds-align_absolute-center slds-m-bottom_x-small">
+                                                <lightning-icon icon-name='utility:add' alternative-text='add' data-id={index} size='small' title='add' onclick={increaseQuantity}></lightning-icon>
+                                                </div>
+                                            </div>
+                                        </span>
+                                        </div>
+                                        
+                                    </div>
+                                </div>
+                    </template>
+                </div>
+            </template>        
+            </ul>    
+                <div class="slds-grid slds-gutters">
+                    <div class="slds-col slds-size_2-of-3 slds-m-left_large">
+                    <lightning-button variant="destructive" label="Back" title="Primary action" onclick={Previousscreen} class="slds-m-right_x-small"></lightning-button>
+                    </div>
+                    <div class="slds-col slds-size_1-of-3">
+                    <lightning-button variant="brand" label="Next" title="Primary action" onclick={orderconfirmation} class="slds-m-left_x-small"></lightning-button>
+                    </div>
+                </div>
+            </lightning-card>
+        </template>
+            <template if:false={showmenu}>  
+            <c-order-confirmation confirmeditems ={restaurantsmenurecords} onbackmenu = {showmenurecords}></c-order-confirmation>
+            </template>
+    </div>
+</template>

@@ -1,0 +1,30 @@
+<template>
+  
+        <lightning-card title="Pending Orders" icon-name="custom:custom14">
+            <ul class="slds-m-around_medium parentcss">
+            <template if:true={orderRecords}>  
+                <div class="childcss">       
+                    <template for:each={orderRecords} for:item="order">
+                        <li key={order.Id} style="color:red"><b>{order.Opportunity.Name}</b></li>  
+                        <table key={order.Id}>
+                            <tr key={order.Id}>
+                                <th key={order.Id} >Dish</th>
+                                <th key={order.Id} >Quantity</th>    
+                                <th key={order.Id} >Price</th> 
+                            </tr>
+                            
+                            <template for:each={order.OrderItems} for:item="oi">                      
+                                <tr key={oi.Id}>
+                                    <td key={oi.Id} width="50%">{oi.Product2.Name}</td>
+                                    <td key={oi.Id} width="20%">{oi.Quantity}</td>    
+                                    <td key={oi.Id} width="30%">{oi.UnitPrice}</td>  
+                                </tr>              
+                            </template>  
+                        </table>            
+                    </template>
+                </div>
+            </template>        
+            </ul>    
+        </lightning-card>
+    
+</template>

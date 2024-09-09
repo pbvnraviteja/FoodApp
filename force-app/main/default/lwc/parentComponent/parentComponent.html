@@ -1,0 +1,37 @@
+<template>
+    <!--lightning-card  title="LWC">
+        <p>THis is parent</p>
+        <p> {childmsg}</p>
+        <lightning-button variant="brand" label="Parent button" title="Primary action" onclick={parentclick} class="slds-m-left_x-small"></lightning-button>
+        <lightning-button variant="brand" label="Second button" title="Primary action" onclick={secondclick} class="slds-m-left_x-small"></lightning-button>
+    </lightning-card>
+    
+        <c-child-component child-value={childmsg} onchildcustomevent={hanldeProgressValueChange} ></c-child-component>
+    
+       
+    <lightning-record-form record-id="001dL0000081BlPQAU" object-api-name="Account" layout-type="Compact" columns="2" mode="edit"
+       onsuccess={handleSuccess} onsubmit={handleSubmit}>
+    </lightning-record-form-->
+
+    <lightning-card title="Data Transfer Using Message Channel for Unrelated LWC Component">
+        <div class = "slds-p-around_medium slds-box">
+            <lightning-input  type="text" 
+                               name = "fName" 
+                               label="Enter First Name"
+                               value = {firstName}
+                               onchange = {handlefirstName}>
+            </lightning-input><br/>
+            <lightning-input  type="text" 
+                               name = "lName" 
+                               label="Enter Last Name"
+                               value = {lastName}
+                               onchange = {handlelastName}>
+            </lightning-input>
+            <br/>
+            <lightning-button variant="brand" label="send data" onclick={handleClick}>
+                
+            </lightning-button>
+        </div>
+    </lightning-card>
+
+</template>

@@ -1,0 +1,58 @@
+<template>
+    <lightning-card>         
+        <div class="carousel-container">
+              <div class="slds-carousel" id="carousel-example-generic">
+                  <div class="slds-carousel__stage">
+                      <span class="slds-carousel__autoplay">
+                          <!--button class="slds-button slds-button_icon slds-button_icon-border-filled slds-button_icon-x-small" onclick={toggleAutoplay} title="Toggle auto-play">
+                              <svg class="slds-button__icon" aria-hidden="true">
+                                  <use xlink:href={buttonIcon}></use>
+                              </svg>
+                              <span class="slds-assistive-text">{buttonLabel}</span>
+                          </button-->
+                      </span>
+                      <div class="slds-carousel__panels" style={carouselTransform}>
+                          <div id="content-id-01" class="slds-carousel__panel" role="tabpanel" aria-labelledby="indicator-id-01">
+                              <a href="javascript:void(0);" class="slds-carousel__panel-action slds-text-link_reset">
+                                  <div class="slds-carousel__image">
+                                      <img src="https://ddl000001lx6cuae-dev-ed.develop.file.force.com/sfc/dist/version/download/?oid=00DdL000001lX6c&ids=068dL000001qjgP&d=%2Fa%2FdL0000000de5%2FGeHEVcieN9ZDN5ceIG307VxPnp0Rwmk76j2QrbvUaqQ&asPdf=false" style="height:150px;" alt="Visit App Exchange" />
+                                  </div>
+                              </a>
+                          </div>
+                          <div id="content-id-02" class="slds-carousel__panel" role="tabpanel" aria-labelledby="indicator-id-02">
+                              <a href="javascript:void(0);" class="slds-carousel__panel-action slds-text-link_reset">
+                                  <div class="slds-carousel__image">
+                                      <img src="https://ddl000001lx6cuae-dev-ed.develop.file.force.com/sfc/dist/version/download/?oid=00DdL000001lX6c&ids=068dL000001qjgP&d=%2Fa%2FdL0000000de5%2FGeHEVcieN9ZDN5ceIG307VxPnp0Rwmk76j2QrbvUaqQ&asPdf=false" style="height:150px;" alt="Click to Customize" />
+                                  </div>
+                              </a>
+                          </div>
+                          <div id="content-id-03" class="slds-carousel__panel" role="tabpanel" aria-labelledby="indicator-id-03">
+                              <a href="javascript:void(0);" class="slds-carousel__panel-action slds-text-link_reset">
+                                  <div class="slds-carousel__image">
+                                      <img src="https://i.ibb.co/KF1MM6q/Screenshot-2024-06-07-122719.png" style="height:150px;" alt="Download SalesforceA" />
+                                  </div>
+                              </a>
+                          </div>
+                      </div>
+                      <ul class="slds-carousel__indicators" role="tablist">
+                          <li data-target="#content-id-01" data-slide-to="0" class="slds-carousel__indicator" role="presentation">
+                              <a id="indicator-id-01" class="slds-carousel__indicator-action slds-is-active" href="#carousel-example-generic" role="tab" aria-selected="true" aria-controls="content-id-01" title="Visit App Exchange tab">
+                                  <span class="slds-assistive-text">Visit App Exchange tab</span>
+                              </a>
+                          </li>
+                          <li data-target="#content-id-02" data-slide-to="1" class="slds-carousel__indicator" role="presentation">
+                              <a id="indicator-id-02" class="slds-carousel__indicator-action" href="#carousel-example-generic" role="tab" aria-selected="false" aria-controls="content-id-02" title="Click to Customize tab">
+                                  <span class="slds-assistive-text">Click to Customize tab</span>
+                              </a>
+                          </li>
+                          <li data-target="#content-id-03" data-slide-to="2" class="slds-carousel__indicator" role="presentation">
+                              <a id="indicator-id-03" class="slds-carousel__indicator-action" href="#carousel-example-generic" role="tab" aria-selected="false" aria-controls="content-id-03" title="Download SalesforceA tab">
+                                  <span class="slds-assistive-text">Download SalesforceA tab</span>
+                              </a>
+                          </li>
+                      </ul>
+                  </div>
+              </div>
+          </div>
+    </lightning-card>
+</template>

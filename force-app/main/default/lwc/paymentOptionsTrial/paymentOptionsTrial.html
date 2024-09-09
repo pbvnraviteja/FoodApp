@@ -1,0 +1,41 @@
+<template>
+    <lightning-card title="Restaurant Details" icon-name="standard:orders">
+    <p class="slds-text-heading_small">child</p>
+
+    <!--lightning-button onclick={handleSetActiveSectionC} label="Open Section C"></lightning-button-->
+
+    <lightning-accordion class="example-accordion"
+                         onsectiontoggle={handleToggleSection}
+                         active-section-name="">
+        <lightning-accordion-section name="A" label="UPI">
+            <lightning-input type="text" label="Enter UPI Address" placeholder="*****@ybl" value=""></lightning-input>
+                        <lightning-button variant="brand" label="Proceed"  onclick={procedpayment} class="slds-align_absolute-center slds-m-top_x-small"></lightning-button>
+           
+        </lightning-accordion-section>
+
+        <lightning-accordion-section name="B" label="Net Banking">
+            <lightning-input type="text" label="Enter UPI Address" placeholder="*****netbankingId" value=""></lightning-input>
+                        <lightning-button variant="brand" label="Proceed"  onclick={procedpayment} class="slds-align_absolute-center slds-m-top_x-small"></lightning-button>
+            
+        </lightning-accordion-section>
+
+        <lightning-accordion-section name="C" label="Debit/Creditcard">
+            <div class="my-card">
+                            <div class="slds-grid slds-wrap">  
+                                <div class="slds-m-top_large slds-col slds-small-size_2-of-2 slds-medium-size_2-of-2 slds-large-size_2-of-2">
+                                    <lightning-input type="Number" label="Card Number" placeholder="**** **** *** ****" value=""></lightning-input>
+                                </div>
+                                <div class="slds-m-top_large slds-col slds-small-size_1-of-2 slds-medium-size_1-of-2 slds-large-size_1-of-2">
+                                    <lightning-input type="Date" label="Expiry date" placeholder="09/29" value=""></lightning-input>
+                                </div>
+                                <div class="slds-m-top_large slds-col slds-small-size_1-of-2 slds-medium-size_1-of-2 slds-large-size_1-of-2">
+                                    <lightning-input type="number" label="Cvv" placeholder="123" value=""></lightning-input>
+                                </div>
+                            </div>
+                        </div>
+                        <lightning-button variant="brand" label="Proceed"  onclick={procedpayment} class="slds-align_absolute-center slds-m-top_x-small"></lightning-button>
+            
+        </lightning-accordion-section>
+    </lightning-accordion>
+    </lightning-card>
+</template>

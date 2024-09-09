@@ -1,0 +1,30 @@
+<template>
+    
+    <template if:false={showmenu}>
+        
+    <lightning-card title="Restaurant Details" icon-name="standard:orders">
+        <template if:false={showspinner}>
+        <div class="exampleHolder">
+        <lightning-spinner alternative-text="Loading" size="xx-small"></lightning-spinner>
+    </div>
+        </template>
+        <template if:true={restaurants}>
+            <div class="restaurant-container">
+                <template for:each={restaurants} for:item="resta">
+                    <div key={resta.Id} class="restaurant-box" onclick={dispalymenu} data-id={resta.Id}>
+                        <p class="restaurant-name"><b>{resta.Name}</b></p>
+                        <img src={resta.Image_URL__c} alt="Restaurant Image" class="restaurant-image">
+                        <p class="delivery-info"><b>Delivery in 60min</b></p>
+                    </div>
+                </template>
+            </div>
+        </template>
+    </lightning-card>
+    </template>
+    <template if:true={showmenu}>
+        <c-menu-display-trial onchildcustomevent={hanldeProgressValueChange} contactrecordid={restuaritId}  ></c-menu-display-trial>
+    </template>
+                <template if:true={showpaymenttrial}>  
+     <c-payment-options-trial opportunityid ={oppid}></c-payment-options-trial >
+                </template>
+</template>

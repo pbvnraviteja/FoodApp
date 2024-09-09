@@ -1,0 +1,11 @@
+<template>
+    <lightning-card title="Contact Details" icon-name="custom:custom12">
+    <ul class="slds-m-around_medium">
+    <template if:true={contactRecord}>
+    <p>Contact Info : {contactRecord.Name}</p>
+    <p> phone :{contactRecord.Phone}</p>
+    <p> Email :{contactRecord.Email}</p>
+    </template>
+     </ul>    
+  </lightning-card>
+</template>

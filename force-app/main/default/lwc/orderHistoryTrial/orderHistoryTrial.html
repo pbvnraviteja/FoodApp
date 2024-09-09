@@ -1,0 +1,30 @@
+<template>
+    <lightning-card title="Order Details" icon-name="standard:orders">
+        <template if:true={orderredords}>
+            <div >
+            <template for:each={orderredords} for:item="order">
+                <p key={order.Id} style= "color:red;"><b>{order.Opportunity.Name}</b></p>
+                <table key={order.Id} class="slds-table slds-table_cell-buffer slds-table_bordered">
+                    <thead>
+                        <tr>
+                            <th scope="col">Dish</th>
+                            <th scope="col">Quantity</th>
+                            <th scope="col">Price</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <template for:each={order.OrderItems} for:item="orderitem">
+                            <tr key={orderitem.Id}>
+                                <td>{orderitem.Product2.Name}</td>
+                                <td>{orderitem.Quantity}</td>
+                                <td>{orderitem.UnitPrice}</td>
+                            </tr>
+                        </template>
+                    </tbody>
+                </table>
+            </template>
+            </div>
+        </template>
+        
+    </lightning-card>
+</template>

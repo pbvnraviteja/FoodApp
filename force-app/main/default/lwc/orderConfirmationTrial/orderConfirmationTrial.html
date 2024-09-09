@@ -1,0 +1,31 @@
+<template>
+    <lightning-card title="Menu" icon-name="standard:orders">
+        <template if:true={confirmeditems}>
+            <div class="restaurant-container">
+                <template for:each={confirmeditems} for:item="menu" for:index="index">
+                    <div key={menu.Id} class="restaurant-box"  data-id={menu.Id} >
+                        <p class="restaurant-name"><b>{menu.Product__r.Name}</b></p>
+                        <img src={menu.Product_image__c} alt="Restaurant Image" class="restaurant-image">
+                        <p class="delivery-info">Price - {menu.Price__c}</p>
+                        <span>
+                                            <div class="slds-grid slds-wrap slds-m-bottom_x-small">
+                                                <div class="slds-col slds-small-size_1-of-3 slds-medium-size_1-of-3 slds-large-size_1-of-3 slds-align_absolute-center">
+                                                    <lightning-icon icon-name='utility:minimize_window' alternative-text='minimize_window' data-id={index} onclick={decreaseconfirmQuantity} size='small' title='minimize_window'></lightning-icon>
+                                                </div>
+                                                <div class="slds-col slds-small-size_1-of-3 slds-medium-size_1-of-3 slds-large-size_1-of-3">
+                                                    <lightning-input type="number" label="" value={menu.Quantity}></lightning-input>
+                                                </div>
+                                                <div class="slds-col slds-small-size_1-of-3 slds-medium-size_1-of-3 slds-large-size_1-of-3 slds-align_absolute-center slds-m-bottom_x-small">
+                                                <lightning-icon icon-name='utility:add' alternative-text='add' data-id={index} size='small' title='add' onclick={increaseconfirmQuantity}></lightning-icon>
+                                                </div>
+                                            </div>
+                                        </span>
+                    </div>
+                </template>
+            </div>
+        </template>
+        <p>Total Amount - {totalAmount}</p>
+        <lightning-button variant="destructive" label="Back" title="Destructive action" onclick={Previousscreen} class="slds-m-left_x-small"></lightning-button>
+        <lightning-button variant="brand" label="Checkout" title="Primary action" onclick={checkout} class="slds-m-left_x-small"></lightning-button>
+    </lightning-card>
+</template>

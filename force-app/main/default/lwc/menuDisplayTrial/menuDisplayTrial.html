@@ -1,0 +1,49 @@
+<template>
+    <template if:true={showmenu}>
+    <lightning-card title="Menu" icon-name="standard:orders">
+        <template if:true={restaurantsmenurecords}>
+            <div class="restaurant-container">
+                <template for:each={restaurantsmenurecords} for:item="menu" for:index="index">
+                    <div key={menu.Id} class="restaurant-box"  data-id={menu.Id} >                        
+                        <p class="restaurant-name"><b>{menu.Product__r.Name}</b></p>
+                        <div class="slds-grid slds-wrap">
+                        <div class="slds-col slds-small-size_1-of-3 slds-medium-size_1-of-3 slds-large-size_1-of-2">
+                            <img src={menu.Product_image__c} alt="Restaurant Image" class="restaurant-image">
+                        </div>
+                        <div class="slds-col slds-small-size_1-of-3 slds-medium-size_1-of-3 slds-large-size_1-of-2 ">
+                        <p class="delivery-info">Price - {menu.Price__c}</p>
+                        </div>
+
+                        </div>
+                        <span >
+                                            <div class="slds-grid slds-wrap">
+                                                <div class="slds-col slds-small-size_1-of-3 slds-medium-size_1-of-3 slds-large-size_1-of-3 slds-align_absolute-center">
+                                                    <lightning-icon icon-name='utility:minimize_window' alternative-text='minimize_window' data-id={index} onclick={decreaseQuantity} size='small' title='minimize_window'></lightning-icon>
+                                                </div>
+                                                <div class="slds-col slds-small-size_1-of-3 slds-medium-size_1-of-3 slds-large-size_1-of-3">
+                                                    <lightning-input type="number" label="" value={menu.Quantity__c}></lightning-input>
+                                                </div>
+                                                <div class="slds-col slds-small-size_1-of-3 slds-medium-size_1-of-3 slds-large-size_1-of-3 slds-align_absolute-center slds-m-bottom_x-small">
+                                                <lightning-icon icon-name='utility:add' alternative-text='add' data-id={index} size='small' title='add' onclick={increaseQuantity}></lightning-icon>
+                                                </div>
+                                            </div>
+                                        </span>
+                    </div>
+                </template>
+            </div>
+        </template>
+        <div class="slds-grid slds-wrap">
+        <div class="slds-col">
+        <lightning-button variant="destructive" label="Back" title="Destructive action" onclick={backtoParent} class="slds-m-left_x-small"></lightning-button>
+        </div>
+        <div class="slds-col">
+        <lightning-button variant="brand" label="Next" title="Primary action" onclick={orderconfirmation} class="slds-m-left_x-small slds-float_right"></lightning-button>
+        
+        </div>
+        </div>
+    </lightning-card>
+    </template>
+    <template if:false={showmenu}>  
+            <c-order-confirmation-trial confirmeditems ={restaurantsmenurecords} onbackmenu = {showmenurecords}></c-order-confirmation-trial>
+    </template>
+</template>

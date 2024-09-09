@@ -1,0 +1,138 @@
+<template>
+ <lightning-card  title="LWC">
+    <!--div class="slds-p-around_medium lgc-bg">
+        <lightning-input type="text" label="Full Name" name="name" value={fullname} onchange={inputchange}></lightning-input>
+        <lightning-input type="date" name="DOB" label="DOB" value={datefield} onchange={inputchange}></lightning-input>
+        <lightning-input type="checkbox" label="Basic option" name="input1" checked={basick}  onchange={inputchange}></lightning-input>
+        <div lwc:if={basick}>
+        <lightning-input type="tel" name="phone" label="Phone" value={phone} onchange={inputchange}></lightning-input>
+        <lightning-input type="email" label="Email address" name="email" value={emailid} onchange={inputchange}></lightning-input>
+        </div>
+        
+    </div-->
+        
+        <lightning-button variant="brand" label="Save" title="Primary action" onclick={sampltebutton} class="slds-m-left_x-small"></lightning-button>
+            <div >
+                 <lightning-input type="date" name="DOB" label="DOB" value={datefield} date-style="short" onchange={inputchange}></lightning-input>
+                <lightning-input type="text" label="Full Name" class="example" name="name" value={fullname} onchange={inputchange}></lightning-input>
+                <div class="samplecss">
+                    <p>test1</p>
+                </div>
+                <div class="samplecss">
+                    <p>test2</p>
+                </div>
+                <div class="samplecss">
+                    <p>test3</p>
+                </div>
+                <div class="samplecss">
+                    <p>test4</p>
+                </div>
+                <div class="samplecss">
+                    <p>test5</p>
+                </div>
+            </div>
+            <lightning-input
+        type="search"
+        onchange={handleKeyChange}
+        class="slds-m-bottom_small"
+        label="Search"
+        value={searchKey}
+      ></lightning-input>
+            <!--div class="slds-m-around_medium">
+                <lightning-button variant="brand" label="create contact" title="Primary action" onclick={buttonclick} class="slds-m-left_x-small"></lightning-button>
+                <template if:true={acclistdata}>
+                    <template for:each={acclistdata} for:item="acc">
+                       
+                            <p key={acc.Id}>{acc.Name}</p>
+                        
+                        
+                    </template>
+                </template>                
+            </div-->
+            <!--lightning-record-edit-form
+    object-api-name="Contact"
+    record-id={recordId}
+    >
+    <lightning-input-field field-name="AccountId"> </lightning-input-field>
+    <lightning-input-field field-name="FirstName"> </lightning-input-field>
+    <lightning-input-field field-name="LastName"> </lightning-input-field>
+    <lightning-input-field field-name="Birthdate"> </lightning-input-field>
+    <lightning-input-field field-name="Email"> </lightning-input-field>
+    <div class="slds-var-m-top_medium">
+        <lightning-button variant="brand" type="submit" label="Save">
+        </lightning-button>
+    </div>
+</lightning-record-edit-form-->
+        <!--c-child-component></c-child-component-->
+        <!--template if:true={isShowModal}>
+
+           
+
+    <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+       <div class="slds-modal__container">
+        
+          <header class="slds-modal__header">
+             <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse" title="Close" onclick={hideModalBox}>
+                <lightning-icon icon-name="utility:close"
+                   alternative-text="close"
+                   variant="inverse"
+                   size="small" ></lightning-icon>
+                <span class="slds-assistive-text">Close</span>
+             </button>
+             <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">Welcome in Apex Hours</h2>
+          </header>
+      
+          
+          <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                <p>Modal/Popup in Lightning Web Component (LWC) Demo</p>
+          </div>
+
+          
+          <footer class="slds-modal__footer">
+             <button class="slds-button slds-button_neutral" onclick={hideModalBox}>Cancel</button>
+          </footer>
+       
+       </div>
+    </section>
+    <div class="slds-backdrop slds-backdrop_open"></div>
+ </template-->
+ <lightning-combobox
+            name="progress"
+            label="Status"
+            value={picklistvalue}
+            placeholder="Select Progress"
+            options={ratings}
+            onchange={handleChange} ></lightning-combobox>
+ <table>
+    <tr>
+      <th>Name</th>
+      <th>phone</th>
+      <th>email</th>
+      <th>Account Name</th>
+    </tr>
+    <template if:true={acclistdata}>
+        <template for:each={acclistdata} for:item="acc" for:index="index">           
+                
+                <tr key={acc.Id}>
+                    <td key={acc.Id}><lightning-input data-id={acc.Id} data-index={index} type="text" name="DOB"  value={acc.Name} date-style="short" onchange={inputchange}></lightning-input></td>
+                    <td>{acc.Phone}</td>
+                    <td>{acc.Email}</td>
+                    <td>{acc.Account.Name}</td>
+                  </tr>          
+            
+        </template>
+    </template> 
+    
+    
+  </table>
+  <div style="height: 300px;">
+    <lightning-datatable
+            key-field="id"
+            data={acclistdata}
+            hide-checkbox-column
+            onrowaction={handleRowAction}
+            columns={columns}>
+    </lightning-datatable>
+</div>
+ </lightning-card>
+</template>

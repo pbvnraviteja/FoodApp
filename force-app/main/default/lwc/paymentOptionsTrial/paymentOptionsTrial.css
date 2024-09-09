@@ -1,0 +1,7 @@
+.my-card {
+    border :solid 2px #ccc !important;;
+	margin : 1px;
+	min-height: 180px;
+	min-width : 225px;
+	border-radius: 12px;
+}

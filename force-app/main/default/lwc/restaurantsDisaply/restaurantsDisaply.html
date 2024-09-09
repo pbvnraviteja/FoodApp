@@ -1,0 +1,43 @@
+<template>
+    <div lwc:if={isLoading} style="height: 200px; position:relative">
+      <lightning-spinner variant="base" size="medium"></lightning-spinner>
+    </div>
+    <div lwc:else>
+                <template if:true={showrestaurants}> 
+                    <lightning-card title="Available restaurants" icon-name="custom:custom11">
+                        <ul class="slds-m-around_medium parentcss">
+                        <template if:true={restaurantsrecords}>  
+                            <div class="slds-grid slds-wrap childcss"> 
+                                <template for:each={restaurantsrecords} for:item="rest">
+                                            <div key={rest.Id} onclick={menuitems} data-id={rest.Id} class="slds-col slds-small-size_12-of-12 slds-medium-size_6-of-12 slds-large-size_4-of-12 my-card" >
+                                                <b class="nameclass">{rest.Name}</b>  </br>
+                                                <div class="slds-grid slds-wrap">                                                                           
+                                                    <div  class=" slds-col slds-small-size_2-of-2 slds-medium-size_2-of-2 slds-large-size_2-of-2">
+                                                        
+                                                        <img  style="height: 100px !important" src={rest.Image_URL__c}/>
+                                                    </div>
+                                                    <div  class=" slds-col slds-small-size_2-of-2 slds-medium-size_2-of-2 slds-large-size_2-of-2">
+                                                        <b>Delivery in 60Min</b></br>
+                                                        <!--b style="color:blue">{rest.Phone}</b-->
+                                                    </div>
+                                                    <!--div class=" slds-col slds-small-size_1-of-2 slds-medium-size_1-of-2 slds-large-size_1-of-2">
+                                                        <b>{rest.MailingCity}</b></br>
+                                                        <b>{rest.MailingCountry}</b></br>
+                                                        <b>{rest.MailingPostalCode}</b>
+                                                    </div-->
+                                                </div>
+                                            </div>
+                                </template>
+                            </div>
+                        </template>        
+                        </ul>    
+                    </lightning-card>
+                </template>
+            <template if:true={showmenu}>  
+            <c-restaurants-menu contactrecordid ={partnerid} onbackclick={getrestaurants}></c-restaurants-menu>
+            </template>
+            <template if:true={showpayment}>  
+            <c-payment-options opportunityid ={oppid}></c-payment-options>
+            </template>
+    </div>
+</template>
