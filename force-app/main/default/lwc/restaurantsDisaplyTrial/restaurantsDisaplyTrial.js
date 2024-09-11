@@ -33,15 +33,13 @@ export default class RestaurantsDisaplyTrial extends LightningElement {
     {
         this.showspinner = true;
     }
-
+    subscription = null;
      @wire(MessageContext)
     messageContext;
  
     subscribeToMessageChannel() {
-            this.isLoading = true;
             this.subscription = subscribe(this.messageContext, messageChannel, (message) => {
                 this.oppid = message.messageText;
-                this.isLoading = false;
                 this.showpaymenttrial = true;
                 this.showmenu = false;
                 console.log(`grand parent received ${message.messageText}`);

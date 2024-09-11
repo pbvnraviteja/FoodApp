@@ -1,0 +1,28 @@
+<html>
+<head>
+	<title></title>
+</head>
+
+<body>
+<h2><img alt="" src="https://ddl000001lx6cuae-dev-ed.develop.file.force.com/sfc/dist/version/download/?oid=00DdL000001lX6c&ids=068dL000001qjgP&d=%2Fa%2FdL0000000de5%2FGeHEVcieN9ZDN5ceIG307VxPnp0Rwmk76j2QrbvUaqQ&asPdf=false" style="width: 160px; height: 92px; float: right;" /></h2>
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+
+
+<p>Hello {!Name},</p></br>
+
+<p>Thank you for placing an order with {!p1}</p></br>
+
+<p>We are pleased to confirm the receipt of your order -&nbsp; {!p2}</P></br>
+
+{!table}
+
+<p>Your order is now being processed and we will ensure its prompt dispatch.</p></br>
+
+
+
+<p>Thank You,<p/></br>
+<p>Zest Team<p/></br>
+</body>  </html>

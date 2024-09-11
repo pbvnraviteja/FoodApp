@@ -26,12 +26,11 @@ export default class OrderConfirmation extends LightningElement {
     }
     getconfirmeditems(){
              this.totalAmount =0;
-             let confirmt = [];
              this.confirmeditems = this.confirmeditems.filter(opt => opt.Quantity__c > 0);
              this.confirmeditems = this.confirmeditems.map(opt => {return {...opt, "Quantity": opt.Quantity__c}});
              this.confirmeditems.forEach(item => {
                  this.totalAmount += item.Quantity__c * item.Price__c;
-             });             
+             });
              this.isspinner = false;
              
              
